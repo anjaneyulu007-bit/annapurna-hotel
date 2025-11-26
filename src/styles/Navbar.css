@@ -1,0 +1,257 @@
+.navbar {
+  font-family: Spectral, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  background: #ffffff;
+  padding: 8px 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  min-height: 50px;
+}
+
+.navbar.scrolled {
+  padding: 6px 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px; 
+}
+
+/* Brand/Logo Section */
+.brand-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.brand-main {
+  font-size: 27px;
+  font-weight: 900;
+  color: #4a6d4b;
+  letter-spacing: 1px;
+}
+
+.brand-sub {
+  font-size: 19px;
+  font-weight: 600;
+  color: #740110;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Right Navigation Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+/* Main Navigation Links */
+.main-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #000000;
+  font-family: Spectral, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  padding: 4px 0;
+  position: relative;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.main-nav a:hover {
+  color: #666666;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* Navigation Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.search-prefix {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666666;
+}
+
+.search-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 3px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: #000000;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-right {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    gap: 0;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-right.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .main-nav a {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .main-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-actions {
+    width: 100%;
+  }
+
+  .search-section {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .brand-main {
+    font-size: 20px;
+  }
+
+  .brand-sub {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .brand-main {
+    font-size: 18px;
+  }
+
+  .brand-sub {
+    font-size: 14px;
+  }
+
+  .nav-right {
+    top: 60px;
+  }
+}
+
+/* Additional styles for the layout */
+.nav-content {
+  min-height: 50px;
+}
+
+/* Ensure proper spacing */
+.main-nav a {
+  white-space: nowrap;
+}
+
+.search-section {
+  white-space: nowrap;
+}
