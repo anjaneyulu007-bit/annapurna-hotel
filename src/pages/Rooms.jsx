@@ -42,6 +42,11 @@ function Rooms() {
     }
   };
 
+  // Function to handle thumbnail click
+  const handleThumbnailClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
   // Function to get fallback image based on room category
   const getFallbackImage = (category) => {
     const categoryKey = category.toLowerCase();
@@ -159,14 +164,18 @@ function Rooms() {
               
               <div className="modal-thumbnails">
                 {selectedRoom.images.map((image, index) => (
-                  <ImageLoader 
+                  <div 
                     key={index}
-                    src={image} 
-                    fallbackSrc={getFallbackImage(selectedRoom.category)}
-                    alt={`${selectedRoom.name} ${index + 1}`}
-                    className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
-                    onClick={() => setCurrentImageIndex(index)}
-                  />
+                    className={`thumbnail-container ${index === currentImageIndex ? 'active' : ''}`}
+                    onClick={() => handleThumbnailClick(index)}
+                  >
+                    <ImageLoader 
+                      src={image} 
+                      fallbackSrc={getFallbackImage(selectedRoom.category)}
+                      alt={`${selectedRoom.name} ${index + 1}`}
+                      className="thumbnail"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -175,6 +184,21 @@ function Rooms() {
               <h2>{selectedRoom.name}</h2>
               <div className="modal-price">RM {selectedRoom.price}/night</div>
               <p>{selectedRoom.description}</p>
+              
+              <div className="modal-specs">
+                <div className="modal-spec">
+                  <strong>Size:</strong> {selectedRoom.size} m²
+                </div>
+                <div className="modal-spec">
+                  <strong>Guests:</strong> {selectedRoom.guests} {selectedRoom.guests > 1 ? 'People' : 'Person'}
+                </div>
+                <div className="modal-spec">
+                  <strong>Beds:</strong> {selectedRoom.beds}
+                </div>
+                <div className="modal-spec">
+                  <strong>Category:</strong> {selectedRoom.category}
+                </div>
+              </div>
               
               <div className="modal-features">
                 <h4>Features & Amenities</h4>

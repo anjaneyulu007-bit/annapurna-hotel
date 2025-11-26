@@ -6,12 +6,13 @@
   background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
   color: var(--white);
   text-align: center;
-  padding: 120px 0 60px;
-  margin-top: 20px;
+  padding: 20px 0 20px;
+  margin-top: -20px;
 }
 
 .amenities-hero h1 {
-  font-size: 2.7rem;
+  font-size: 2.0rem;
+  margin-top: 10px;
   margin-bottom: 10px;
   font-weight: 700;
 }
@@ -23,16 +24,13 @@
   opacity: 0.9;
 }
 
-/* Amenity Categories */
-.amenity-category {
-  margin-bottom: 40px;
-  margin-top: 40px;
-}
+
 
 .category-title {
   color: var(--primary-color);
   font-size: 2.2rem;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   text-align: center;
   position: relative;
 }
@@ -193,7 +191,7 @@
   }
 
   .amenities-hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.0rem;
   }
 
   .amenity-detail-item {
